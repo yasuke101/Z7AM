@@ -1,0 +1,33 @@
+{
+  "name": "z7am",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "i18next": "^19.4.5",
+    "i18next-xhr-backend": "^3.2.2",
+    "react-i18next": "^11.5.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasuke101/Z7AM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasuke101/Z7AM/issues"
+  },
+  "engines": {
+    "node": "10.19.0"
+  },
+  "homepage": "https://github.com/yasuke101/Z7AM#readme"
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Z7AM</title>
+
+  <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <!-- leaflet libraries -->
+    <link rel="stylesheet" href="/leaflet/leaflet.css"/>
+    <script src="leaflet/leaflet.js"></script>
+  <!-- My libraries -->
+    <link rel="stylesheet" href="/css/main/mine.css" />
+  <!-- location button libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/dist/L.Control.Locate.min.css" />
+    <script src="dist/L.Control.Locate.min.js" charset="utf-8"></script>
+  <!-- markers cluster libraries -->
+    <link rel="stylesheet" href="/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="/dist/MarkerCluster.Default.css" />
+    <script src="/dist/leaflet.markercluster.js" charset="utf-8"></script>
+  <!-- Bootstrap core JavaScript -->
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+    
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/"><img src="/image/logo2.png" width="130"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">        
+          <li class="nav-item">
+            <button class="btn btn-sm btn-outline-info" type="button" onclick="location.href='mailto:z7am.info@gmail.com';" id="feedback_button">ملاحظات أو اقتراحات <i class="fa fa-envelope" aria-hidden="true"></i></button>
+          </li>                
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+  <header>
+    <!-- map location -->
+    <div id="map" class="mx-auto my-5"></div>
+    
+    <!-- Map -->    
+    <div class="container mt-3 mb-5">
+      <h2 class="text-center">عدد المستخدمين الحاليين : <span id="users_number" s></span></h2>
+    </div>
+    <hr> 
+    <!-- socket node js package -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/js/main/map.js"></script>
+    <script src="/js/main/communication.js"></script>
+    
+  </header>
+
+  <!-- Explanation Section -->
+  <div class="container" dir="rtl" lang="ar" style="text-align: right;">
+    <div class="row py-4">
+      <div class="col-lg-6">
+        <h2 class="title">لماذا Z7AM ؟</h2>
+        <p id="text_why">تزداد احتمالية انتشار والإصابة بفيروس كورونا في الأماكن المزدحمة بالبشر. في هذا الصدد، Z7AM سيساعدك (و المستعملين الاخرين) من <span id="users_number">التعرف و في الوقت الحقيقي للإستعمال، على المواقع المكتظة بالبشر بمدينتك </span>، وذلك من خلال خريطة تفاعلية تمكن من :</p>
+        <ul>
+          <li id="how2">تمثيل موقعك وموقع المستعملين الاخرين بنقط حمراء فقط، حفاظا على سرية هويتكم</li>
+          <li id="how1">تجميع المواقع القريبة معًا ، باستخدام ألوان وأرقام ذات معنى، تترجم حدة الإكتظاظ على الخريطة</li>
+        </ul>
+
+        <h2 class="title" >كيف يعمل Z7AM ؟</h2>
+        <p id="text_how"><span id="users_number">Z7AM لايستعمل أي قاعدة بيانات بتاتا (database) ، مما يعني أننا لا نقوم بتخزين بياناتك، كل البيانات الواردة في الخريطة هي بيانات حية تحذف بمجرد خروجكم من الموقع </span>، بحيث هويتهم تبقى مجهولة، فقط قرص احمر يمثلكم في الخريطة </p>
+
+        <h2 class="title" >كيف يمكنني الاستفادة ؟</h2>
+        <p id="text_benefit">ببساطة، شارك موقعك مع الاخرين حتى تتمكن من رؤية خاصتهم على الخريطة</p>        
+        
+      </div>
+      <div class="col-lg-6">
+        <img class="img-fluid rounded" src="image/test.png" alt="">
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="container">
+      <div class="row mb-3 mt-4">
+        <div class="mx-auto">
+          <p id="give_feedback">شارك معنا ملاحظاتك، أفكارك و إقتراحك عن طريق إرسال بريد إلكتروني على <a href="mailto:z7am.info@gmail.com">z7am.info@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+
+    </div>
+    <!-- /.container -->
+  </footer>
+</body>
+</html>
