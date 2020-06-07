@@ -35,15 +35,11 @@ var output_circles = function (record) {
         // increment mine and output curent users number value
         users_number++
         document.getElementById("users_number").innerHTML = users_number;
-        
-        console.log(local_users_pos);  
+       
       }else{
       // output curent user number value
       document.getElementById("users_number").innerHTML = users_number;
       }
-
-
-    console.log('! initialisation !'); 
   });
 
 // if a user left, drop his circle from the map + update the current user number value 
@@ -56,14 +52,11 @@ var output_circles = function (record) {
       // update visual content (map circules)
         circlesLayer.clearLayers();
         output_circles(local_users_pos);
-
-    console.log(local_users_pos); 
     }
     // update curent user number value
       users_number--;
       document.getElementById("users_number").innerHTML = users_number;
- 
-    console.log('! user disconnected and content updated !');  
+   
   });
 
 // if new user connect , add his circule to the map
@@ -72,17 +65,11 @@ var output_circles = function (record) {
       // add corespondent record localy
         local_users_pos[data.id]=data.pos;
       // add the new circule   
-        output_circle(data.pos);
-
-
-      console.log(local_users_pos);       
+        output_circle(data.pos);             
       } 
     // update curent user number value
       users_number++;
-      document.getElementById("users_number").innerHTML = users_number;
-  
-
-    console.log('! user connected and content updated !');    
+      document.getElementById("users_number").innerHTML = users_number;   
   });
 
 
@@ -101,8 +88,7 @@ map.locate({setView: false, watch: false}) /* This will return map so you can do
     
     // send proper location 
       socket.emit('send_data',{'latitude':latitude,'longitude':longitude,'accuracy':accuracy});
-    
-    console.log('! location sent !');
+
   })
   .on('locationerror', function(e){
     
@@ -116,8 +102,7 @@ map.locate({setView: false, watch: false}) /* This will return map so you can do
       // set this user location flag to false (doesn't attribuated with his location)
         has_location=false;
 
-        console.log('! acces to location interupted !'); 
     }else{
-      console.log('! no given location !');  
+      alert(' شارك موقعك مع الاخرين حتى تتمكن من رؤية خاصتهم على الخريطة');
     }
   });
