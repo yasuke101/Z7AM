@@ -1,8 +1,12 @@
+const forceSecure = require("force-secure-express");
 var express = require('express');
 var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+app.use(forceSecure([
+    "z7am.herokuapp.com"
+]));
 
 app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
