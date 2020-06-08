@@ -7,8 +7,7 @@ var users_number;
 
 
 var output_circle = function (json) {
-    circlesLayer.addLayer(create_circle(json.latitude,json.longitude,json.accuracy,'red',1,'red',1,'that someone else !'));
-    circlesLayer.addTo(map);
+    circlesLayer.addLayer(create_circle(json.latitude,json.longitude,json.accuracy,'red',1,'red',1,'هذا شخص آخر :)'));
 };
 
 var output_circles = function (record) {
@@ -23,23 +22,16 @@ var output_circles = function (record) {
     
     // curent user number value initialisation
       users_number=Object.keys(data).length;
-     
-      if(has_location){
-        
-        // initialisation of location array localy (client side)
-          local_users_pos=data;
 
-        // initialisation of visual content (map's circules)
-          output_circles(data);   
+    // initialisation of location array localy (client side)
+      local_users_pos=data;
 
-        // increment mine and output curent users number value
-        users_number++
-        document.getElementById("users_number").innerHTML = users_number;
-       
-      }else{
-      // output curent user number value
+    // initialisation of visual content (map's circules)
+      output_circles(data);   
+      
+    // output curent user number value
       document.getElementById("users_number").innerHTML = users_number;
-      }
+
   });
 
 // if a user left, drop his circle from the map + update the current user number value 
@@ -52,6 +44,7 @@ var output_circles = function (record) {
       // update visual content (map circules)
         circlesLayer.clearLayers();
         output_circles(local_users_pos);
+        circlesLayer.addTo(map);
     }
     // update curent user number value
       users_number--;
@@ -65,7 +58,8 @@ var output_circles = function (record) {
       // add corespondent record localy
         local_users_pos[data.id]=data.pos;
       // add the new circule   
-        output_circle(data.pos);             
+        output_circle(data.pos);
+        circlesLayer.addTo(map);           
       } 
     // update curent user number value
       users_number++;
@@ -83,8 +77,11 @@ map.locate({setView: false, watch: false}) /* This will return map so you can do
       var {latitude,longitude,accuracy}=e;
     
     // set up user's location content visualisation (map marker)
-      myLayer.addLayer(create_marker(latitude,longitude,'Your are here :)'));
+      myLayer.addLayer(create_marker(latitude,longitude,'أنت هنا :)'));
       myLayer.addTo(map);
+
+    // output of the map content (map's circules)
+      circlesLayer.addTo(map);      
     
     // send proper location 
       socket.emit('send_data',{'latitude':latitude,'longitude':longitude,'accuracy':accuracy});
